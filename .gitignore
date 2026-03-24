@@ -7,3 +7,7 @@ results/VAE_parameters/*
 *.csv
 *.pkl
 *.pt
+uniref100.fasta.gz
+uniref100.fasta
+uniref90.fasta
+wget-log
