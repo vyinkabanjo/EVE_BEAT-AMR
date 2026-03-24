@@ -2,7 +2,6 @@ EVE/__pycache__/
 utils/__pycache__/
 results/VAE_parameters/*
 !results/VAE_parameters/.gitkeep
-*.fasta
 *.a2m
 *.sto
 *.csv
