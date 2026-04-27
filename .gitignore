@@ -11,3 +11,12 @@ uniref100.fasta.gz
 uniref100.fasta
 uniref90.fasta
 wget-log
+*.log
+*.sh
+*.txt
+data/MSA/*
+data/weights/*
+data/MSA/DprE1/*
+data/MSA/InhA/*
+data/MSA/**/*tblout.txt
+data/sequences/*
