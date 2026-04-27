@@ -70,12 +70,16 @@ if __name__=='__main__':
     model = model.to(model.device)
 
     try:
+        # bro this was literally the problem; was adding "_final" twice to the checkpoint name which is why it couldn't find it
         checkpoint_name = str(args.VAE_checkpoint_location) + os.sep + model_name + "_final"
-        checkpoint = torch.load(checkpoint_name)
+        # checkpoint = torch.load(checkpoint_name)
+        print("got here")
+        checkpoint = torch.load(checkpoint_name, map_location='cpu')
         model.load_state_dict(checkpoint['model_state_dict'])
         print("Initialized VAE with checkpoint '{}' ".format(checkpoint_name))
-    except:
+    except Exception as e:
         print("Unable to locate VAE model checkpoint")
+        print("Error:", str(e))
         sys.exit(0)
     
     list_valid_mutations, evol_indices, _, _ = model.compute_evol_indices(msa_data=data,

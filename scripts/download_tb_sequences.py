@@ -1,14 +1,21 @@
 import requests
 import os
 
+# a ton of fake uniprot IDs from claude sigh, fixed below
+# TB_PROTEINS = {
+#     'InhA': 'P9WGR1',       # Isoniazid/Ethionamide target
+#     'KatG': 'P9WIE5',       # Isoniazid activator
+#     'RpoB': 'P9WGK9',       # Rifampicin target
+#     'DprE1': 'I6Y1T8',      # Benzothiazinone target
+#     'MmpL3': 'P9WJF1',      # SQ109 target
+#     'AtpE': 'P9WPS1',       # Bedaquiline target (ATP synthase subunit)
+#     'EmbB': 'P9WJP9'        # Ethambutol target
+# }
+
 TB_PROTEINS = {
-    'InhA': 'P9WGR1',       # Isoniazid/Ethionamide target
-    'KatG': 'P9WIE5',       # Isoniazid activator
-    'RpoB': 'P9WGK9',       # Rifampicin target
-    'DprE1': 'I6Y1T8',      # Benzothiazinone target
-    'MmpL3': 'P9WJF1',      # SQ109 target
-    'AtpE': 'P9WPS1',       # Bedaquiline target (ATP synthase subunit)
-    'EmbB': 'P9WJP9'        # Ethambutol target
+    'RpoB': 'P9WGY9',       # Rifampicin target
+    'MmpL3': 'P9WJV5',      # SQ109 target
+    'EmbB': 'P9WNL7'        # Ethambutol target
 }
 
 # TB_PROTEINS = {

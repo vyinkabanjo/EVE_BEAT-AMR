@@ -19,4 +19,4 @@ data/weights/*
 data/MSA/DprE1/*
 data/MSA/InhA/*
 data/MSA/**/*tblout.txt
-data/sequences/*
+data/sequences/*.fasta

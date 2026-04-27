@@ -2,6 +2,7 @@ import os, sys
 import argparse
 import pandas as pd
 import json
+import torch
 
 from EVE import VAE_model
 from utils import data_utils
@@ -18,6 +19,8 @@ if __name__=='__main__':
     parser.add_argument('--model_parameters_location', type=str, help='Location of VAE model parameters')
     parser.add_argument('--training_logs_location', type=str, help='Location of VAE model parameters')
     parser.add_argument('--seed', type=int, default=42, help='Random seed')
+    parser.add_argument('--load_checkpoint', type=str, default=None, help='Path to checkpoint to resume training from')
+    parser.add_argument('--num_additional_steps', type=int, default=None, help='Number of additional training steps if resuming')
     args = parser.parse_args()
 
     mapping_file = pd.read_csv(args.MSA_list)
@@ -55,6 +58,13 @@ if __name__=='__main__':
                     random_seed=args.seed
     )
     model = model.to(model.device)
+    
+    if args.load_checkpoint is not None:
+        checkpoint = torch.load(args.load_checkpoint, map_location=model.device)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        print("Loaded checkpoint from: " + args.load_checkpoint)
+        if args.num_additional_steps is not None:
+            model_params["training_parameters"]["num_training_steps"] = args.num_additional_steps
 
     model_params["training_parameters"]['training_logs_location'] = args.training_logs_location
     model_params["training_parameters"]['model_checkpoint_location'] = args.VAE_checkpoint_location

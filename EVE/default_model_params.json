@@ -21,7 +21,7 @@
         "logit_sparsity_p"                    :   0
     },
     "training_parameters": {
-        "num_training_steps"                :   400000,
+        "num_training_steps"                :   800000,
         "learning_rate"                     :   1e-4,
         "batch_size"                        :   256,
         "annealing_warm_up"                 :   0,
@@ -34,7 +34,7 @@
         "validation_freq"                   :   1000,
         "log_training_info"                 :   true,
         "log_training_freq"                 :   1000,
-        "save_model_params_freq"            :   500000
+        "save_model_params_freq"            :   300000
     }
 }
 
